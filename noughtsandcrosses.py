@@ -1,7 +1,9 @@
 import random
 import os.path
 import json
+
 random.seed()
+
 
 def draw_board(board):
     # develop code to draw the board
@@ -10,28 +12,32 @@ def draw_board(board):
     print(" ---- ---- ---- ")
     print(f"|  {board[1][0]} |   {board[1][1]}|  {board[1][2]}  | ")
     print(" ---- ---- ---- ")
-    print(f"|  {board[2][0]} | { board[2][1]} |    {board[2][2]}| ")
+    print(f"|  {board[2][0]} | {board[2][1]} |    {board[2][2]}| ")
     print(" ---- ---- ---- ")
     pass
+
 
 def welcome(board):
     # prints the welcome message
     print("welcome")
     # display the board by calling draw_board(board)
-    draw_board()
+    draw_board(board)
     pass
+
 
 def initialise_board(board):
     # develop code to set all elements of the board to one space ' '
-    for i in board:
-        if i.isdigit():
-            i=" "
+    for row in range(len(board)):
+        for col in range(len(board[row])):
+            board[row][col] = ' '
     return board
-    
+
+
 def get_player_move(board):
     # develop code to ask the user for the cell to put the X in,
     # and return row and col
     return row, col
+
 
 def choose_computer_move(board):
     # develop code to let the computer chose a cell to put a nought in
@@ -44,11 +50,13 @@ def check_for_win(board, mark):
     # return True if someone won, False otherwise
     return False
 
+
 def check_for_draw(board):
     # develop cope to check if all cells are occupied
     # return True if it is, False otherwise
     return True
-        
+
+
 def play_game(board):
     # develop code to play the game
     # star with a call to the initialise_board(board) function to set
@@ -66,10 +74,10 @@ def play_game(board):
     # if so, return -1 for the score
     # if not check for a draw by calling check_for_draw(board)
     # if drawn, return 0 for the score
-    #repeat the loop
+    # repeat the loop
     return 0
-                    
-                
+
+
 def menu():
     # get user input of either '1', '2', '3' or 'q'
     # 1 - Play the game
@@ -78,6 +86,7 @@ def menu():
     # q - End the program
     return choice
 
+
 def load_scores():
     # develop code to load the leaderboard scores
     # from the file 'leaderboard.txt'
@@ -85,7 +94,8 @@ def load_scores():
     # with the player names as key and the scores as values
     # return the dictionary in leaders
     return leaders
-    
+
+
 def save_score(score):
     # develop code to ask the player for their name
     # and then save the current score to the file 'leaderboard.txt'
@@ -96,4 +106,3 @@ def display_leaderboard(leaders):
     # develop code to display the leaderboard scores
     # passed in the Python dictionary parameter leader
     pass
-
